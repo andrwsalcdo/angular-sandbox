@@ -7,54 +7,44 @@ import { User } from '../../models/User';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users: User[];
+  users: User[] = [];
+  showExtended = true;
+  loaded = false;
 
   constructor() {}
 
   ngOnInit() {
-    this.users = [
-      {
-        firstName: 'john',
-        lastName: 'doe',
-        age: 30,
-        address: {
-          street: '123 abc street',
-          city: 'city',
-          state: 'state'
+    setTimeout(() => {
+      this.users = [
+        {
+          firstName: 'Bobby',
+          lastName: 'Firmino',
+          age: 30,
+          address: {
+            street: '123 abc street',
+            city: 'city',
+            state: 'state'
+          }
+        },
+        {
+          firstName: 'Sadio',
+          lastName: 'Mane',
+          age: 30,
+          address: {
+            street: '123 abc street',
+            city: 'city',
+            state: 'state'
+          }
         }
-      },
-      {
-        firstName: 'andrew',
-        lastName: 'doe',
-        age: 30,
-        address: {
-          street: '123 abc street',
-          city: 'city',
-          state: 'state'
-        }
-      },
-      {
-        firstName: 'sauce sauce',
-        lastName: 'doe',
-        age: 30,
-        address: {
-          street: '123 abc street',
-          city: 'city',
-          state: 'state'
-        }
-      }
-    ];
+      ];
 
-    this.addUser({
-      firstName: 'zinedine',
-      lastName: 'zidane',
-      age: 30,
-      address: {
-        street: '123 abc street',
-        city: 'city',
-        state: 'state'
-      }
-    });
+      this.addUser({
+        firstName: 'Mo',
+        lastName: 'Salah'
+      });
+
+      this.loaded = true;
+    }, 2000);
   }
 
   addUser(user: User) {
