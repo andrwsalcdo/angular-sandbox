@@ -28,7 +28,9 @@ export class UsersComponent implements OnInit {
             state: 'state'
           },
           image: 'https://loremflickr.com/600/600/man',
-          isActive: true
+          isActive: true,
+          balance: 100,
+          registered: new Date('01/02/2018 08:30:00')
         },
         {
           firstName: 'Sadio',
@@ -40,7 +42,9 @@ export class UsersComponent implements OnInit {
             state: 'state'
           },
           image: 'https://loremflickr.com/600/600/man',
-          isActive: false
+          isActive: false,
+          balance: 200,
+          registered: new Date('04/02/2018 08:30:00')
         }
       ];
 
