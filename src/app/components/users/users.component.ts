@@ -27,7 +27,8 @@ export class UsersComponent implements OnInit {
             state: 'state'
           },
           isActive: true,
-          registered: new Date('01/02/2018 08:30:00')
+          registered: new Date('01/02/2018 08:30:00'),
+          hide: true
         },
         {
           firstName: 'Sadio',
@@ -39,7 +40,8 @@ export class UsersComponent implements OnInit {
             state: 'state'
           },
           isActive: false,
-          registered: new Date('04/02/2018 08:30:00')
+          registered: new Date('04/02/2018 08:30:00'),
+          hide: true
         }
       ];
 
