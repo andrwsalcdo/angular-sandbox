@@ -10,12 +10,7 @@ export class UsersComponent implements OnInit {
   user: User = {
     firstName: '',
     lastName: '',
-    age: null,
-    address: {
-      street: '',
-      city: '',
-      state: ''
-    }
+    email: ''
   };
   users: User[] = [];
   showExtended = true;
@@ -30,12 +25,7 @@ export class UsersComponent implements OnInit {
         {
           firstName: 'Bobby',
           lastName: 'Firmino',
-          age: 30,
-          address: {
-            street: '123 abc street',
-            city: 'city',
-            state: 'state'
-          },
+          email: 'bobby@lfc.com',
           isActive: true,
           registered: new Date('01/02/2018 08:30:00'),
           hide: true
@@ -43,12 +33,7 @@ export class UsersComponent implements OnInit {
         {
           firstName: 'Sadio',
           lastName: 'Mane',
-          age: 30,
-          address: {
-            street: '123 abc street',
-            city: 'city',
-            state: 'state'
-          },
+          email: 'mane@lfc.com',
           isActive: false,
           registered: new Date('04/02/2018 08:30:00'),
           hide: true
@@ -59,21 +44,20 @@ export class UsersComponent implements OnInit {
     }, 2000);
   }
 
-  addUser(user: User) {
-    this.user.isActive = true;
-    this.user.registered = new Date();
-    // immutable unshift
-    this.users = [this.user, ...this.users];
-    // clear form
-    this.user = {
-      firstName: '',
-      lastName: '',
-      age: null,
-      address: {
-        street: '',
-        city: '',
-        state: ''
-      }
-    };
+  // addUser(user: User) {
+  //   this.user.isActive = true;
+  //   this.user.registered = new Date();
+  //   // immutable unshift
+  //   this.users = [this.user, ...this.users];
+  //   // clear form
+  //   this.user = {
+  //     firstName: '',
+  //     lastName: '',
+  //     email: ''
+  //   };
+  // }
+
+  onSubmit(e) {
+    console.log('submitted');
   }
 }
