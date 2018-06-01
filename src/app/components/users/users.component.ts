@@ -11,7 +11,6 @@ export class UsersComponent implements OnInit {
   showExtended = true;
   loaded = false;
   enableAdd = true;
-  currentClasses: object = {};
 
   constructor() {}
 
@@ -27,9 +26,7 @@ export class UsersComponent implements OnInit {
             city: 'city',
             state: 'state'
           },
-          image: 'https://loremflickr.com/600/600/man',
           isActive: true,
-          balance: 100,
           registered: new Date('01/02/2018 08:30:00')
         },
         {
@@ -41,31 +38,16 @@ export class UsersComponent implements OnInit {
             city: 'city',
             state: 'state'
           },
-          image: 'https://loremflickr.com/600/600/man',
           isActive: false,
-          balance: 200,
           registered: new Date('04/02/2018 08:30:00')
         }
       ];
 
-      this.addUser({
-        firstName: 'Mo',
-        lastName: 'Salah'
-      });
-
       this.loaded = true;
-
-      this.setCurrentClasses();
     }, 2000);
   }
 
   addUser(user: User) {
     this.users = [...this.users, user];
-  }
-
-  setCurrentClasses() {
-    this.currentClasses = {
-      'btn-success': this.enableAdd
-    };
   }
 }
