@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit {
             city: 'city',
             state: 'state'
           },
-          image: 'http://lorempixel.com/600/600/people/1'
+          image: 'https://loremflickr.com/600/600/man'
         },
         {
           firstName: 'Sadio',
@@ -37,7 +37,7 @@ export class UsersComponent implements OnInit {
             city: 'city',
             state: 'state'
           },
-          image: 'http://lorempixel.com/600/600/people/2'
+          image: 'https://loremflickr.com/600/600/man'
         }
       ];
 
