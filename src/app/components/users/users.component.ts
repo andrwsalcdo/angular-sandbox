@@ -7,10 +7,19 @@ import { User } from '../../models/User';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
+  user: User = {
+    firstName: '',
+    lastName: '',
+    age: null,
+    address: {
+      street: '',
+      city: '',
+      state: ''
+    }
+  };
   users: User[] = [];
   showExtended = true;
   loaded = false;
-  enableAdd = true;
   showUserForm = false;
 
   constructor() {}
@@ -51,16 +60,20 @@ export class UsersComponent implements OnInit {
   }
 
   addUser(user: User) {
-    this.users = [...this.users, user];
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    console.log('on submit');
-  }
-
-  onChange(e) {
-    console.log(e.type);
-    console.log(e.target.value);
+    this.user.isActive = true;
+    this.user.registered = new Date();
+    // immutable unshift
+    this.users = [this.user, ...this.users];
+    // clear form
+    this.user = {
+      firstName: '',
+      lastName: '',
+      age: null,
+      address: {
+        street: '',
+        city: '',
+        state: ''
+      }
+    };
   }
 }

@@ -2,32 +2,32 @@
 <button (click)="showUserForm = !showUserForm" class="btn btn-dark mb-3">Add User</button>
 <div class="card card-body mb-3" *ngIf="showUserForm">
   <h3>Add User</h3>
-  <form (submit)="onSubmit()">
+  <form>
     <div class="from-group">
       <label>First Name</label>
-      <input type="text" class="form-control" name="firstName">
+      <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName">
     </div>
     <div class="from-group">
       <label>Last Name</label>
-      <input type="text" class="form-control" name="lastName">
+      <input type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName">
     </div>
     <div class="from-group">
       <label>Age</label>
-      <input type="number" class="form-control" name="age">
+      <input type="number" class="form-control" name="age" [(ngModel)]="user.age">
     </div>
     <div class="from-group">
       <label>Street Address</label>
-      <input type="text" class="form-control" name="street">
+      <input type="text" class="form-control" name="street" [(ngModel)]="user.address.street">
     </div>
     <div class="from-group">
       <label>City</label>
-      <input type="text" class="form-control" name="city">
+      <input type="text" class="form-control" name="city" [(ngModel)]="user.address.city">
     </div>
     <div class="from-group">
       <label>State</label>
-      <input type="text" class="form-control" name="state">
+      <input type="text" class="form-control" name="state" [(ngModel)]="user.address.state">
     </div>
-    <button [disabled]="!enableAdd" class="btn btn-block mb-3">Add New User</button>
+    <button (click)="addUser()" [disabled]="user.firstName === '' || user.lastName === ''" class="btn btn-block mb-3">Add New User</button>
   </form>
 </div>
 <ul class="list-unstyled" *ngIf="loaded && users.length > 0">
