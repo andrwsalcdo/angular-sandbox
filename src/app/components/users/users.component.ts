@@ -10,6 +10,7 @@ export class UsersComponent implements OnInit {
   users: User[] = [];
   showExtended = true;
   loaded = false;
+  enableAdd = true;
 
   constructor() {}
 
@@ -24,7 +25,8 @@ export class UsersComponent implements OnInit {
             street: '123 abc street',
             city: 'city',
             state: 'state'
-          }
+          },
+          image: 'http://lorempixel.com/600/600/people/1'
         },
         {
           firstName: 'Sadio',
@@ -34,7 +36,8 @@ export class UsersComponent implements OnInit {
             street: '123 abc street',
             city: 'city',
             state: 'state'
-          }
+          },
+          image: 'http://lorempixel.com/600/600/people/2'
         }
       ];
 
