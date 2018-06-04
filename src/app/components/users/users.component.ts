@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { DataService } from '../../services/data.service';
 import { User } from '../../models/User';
 
 @Component({
@@ -18,29 +19,11 @@ export class UsersComponent implements OnInit {
   showUserForm = false;
   @ViewChild('userForm') form: any;
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
     setTimeout(() => {
-      this.users = [
-        {
-          firstName: 'Bobby',
-          lastName: 'Firmino',
-          email: 'bobby@lfc.com',
-          isActive: true,
-          registered: new Date('01/02/2018 08:30:00'),
-          hide: true
-        },
-        {
-          firstName: 'Sadio',
-          lastName: 'Mane',
-          email: 'mane@lfc.com',
-          isActive: false,
-          registered: new Date('04/02/2018 08:30:00'),
-          hide: true
-        }
-      ];
-
+      this.users = this.dataService.getUsers();
       this.loaded = true;
     }, 2000);
   }
@@ -52,8 +35,8 @@ export class UsersComponent implements OnInit {
       value.isActive = true;
       value.registered = new Date();
       value.hide = true;
-      // immutable unshift
-      this.users = [value, ...this.users];
+
+      this.users = this.dataService.addUser(value);
       // clear form
       this.form.reset();
     }
