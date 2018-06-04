@@ -53,4 +53,14 @@ export class PostsComponent implements OnInit {
     };
     return updatedPosts;
   }
+
+  deletePost(post: Post) {
+    if (confirm('are you sure?')) {
+      this.postsService
+        .deletePost(post.id)
+        .subscribe(
+          () => (this.posts = this.posts.filter(p => p.id !== post.id))
+        );
+    }
+  }
 }
