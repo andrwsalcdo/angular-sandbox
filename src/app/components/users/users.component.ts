@@ -23,8 +23,10 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-      this.users = this.dataService.getUsers();
-      this.loaded = true;
+      this.dataService.getUsers().subscribe(users => {
+        this.users = users;
+        this.loaded = true;
+      });
     }, 2000);
   }
 
