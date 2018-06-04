@@ -32,4 +32,25 @@ export class PostsComponent implements OnInit {
     this.currentPost = post;
     this.isEdit = true;
   }
+
+  onUpdatedPost(post: Post) {
+    const updatedPosts = this.posts.map((curr, idx) => {
+      if (post.id === curr.id) {
+        // immutable way to update the post object in posts array.
+        return [
+          ...this.posts.slice(0, idx),
+          post,
+          ...this.posts.slice(idx + 1)
+        ];
+      }
+    });
+    this.isEdit = false;
+    // clear form
+    this.currentPost = {
+      id: 0,
+      title: '',
+      body: ''
+    };
+    return updatedPosts;
+  }
 }
